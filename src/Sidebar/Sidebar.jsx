@@ -1,10 +1,12 @@
 import React from 'react'
 import './Sidebar.css'
+import AddListingBtn from '../Components/Buttons/AddListingBtn'
 import NGU_Logo from '../Media/ngu-real-estate-logo.png'
 import Leaderboard_Icon from '../Media/SVG/leaderboard.svg'
 import Branches_Icon from '../Media/SVG/branches.svg'
 import Agents_Icon from '../Media/SVG/agents.svg'
 import RELB_Logo from '../Media/relb-logo-sidebar.png'
+
 
 const Sidebar = () => {
 
@@ -27,7 +29,9 @@ const Sidebar = () => {
                     <a href="">Agents</a>
                 </div>
             </div>
-            
+            <div id='listing-btn-sect'>
+                < AddListingBtn />
+            </div>
             <img id='relb-logo' src={RELB_Logo} alt='RELB logo'></img>
         </div>
     )

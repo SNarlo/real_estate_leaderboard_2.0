@@ -44,3 +44,11 @@ a {
     background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50px 0 0 50px;
 }
+
+#listing-btn-sect {
+    position: absolute;
+    bottom: 15%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
