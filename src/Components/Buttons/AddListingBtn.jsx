@@ -1,4 +1,5 @@
-import Plus_Icon from '../Media/SVG/plus-icon.svg'
+import Plus_Icon from '../../Media/SVG/plus-icon.svg'
+import React from 'react'
 import './AddListingBtn.css'
 
 const AddListingBtn = () => {

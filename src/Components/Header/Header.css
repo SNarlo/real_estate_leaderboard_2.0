@@ -1,0 +1,15 @@
+.header {
+    width: 85vw;
+    margin-left: 15vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#profile-link {
+    color: black;
+}
+
+.agent-information {
+    border: 1px solid black;
+}
