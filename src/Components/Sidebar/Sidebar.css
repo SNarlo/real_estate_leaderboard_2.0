@@ -7,9 +7,10 @@
 }
 
 .ngu-logo-section {
-    margin-top: 10%;
-    margin-bottom: 10%;
-    padding: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
 }
 
 .sidebar-menus {

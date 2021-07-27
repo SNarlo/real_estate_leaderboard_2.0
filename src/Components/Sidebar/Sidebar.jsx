@@ -1,11 +1,10 @@
 import React from 'react'
 import './Sidebar.css'
-import AddListingBtn from '../Components/Buttons/AddListingBtn'
-import NGU_Logo from '../Media/ngu-real-estate-logo.png'
-import Leaderboard_Icon from '../Media/SVG/leaderboard.svg'
-import Branches_Icon from '../Media/SVG/branches.svg'
-import Agents_Icon from '../Media/SVG/agents.svg'
-import RELB_Logo from '../Media/relb-logo-sidebar.png'
+import AddListingBtn from '../Buttons/AddListingBtn'
+import NGU_Logo from '../../Media/Images/ngu-real-estate-logo.png'
+import Leaderboard_Icon from '../../Media/SVG/leaderboard.svg'
+import Agents_Icon from '../../Media/SVG/agents.svg'
+import RELB_Logo from '../../Media/Images/relb-logo-sidebar.png'
 
 
 const Sidebar = () => {
@@ -16,18 +15,18 @@ const Sidebar = () => {
                 <img src={NGU_Logo} alt='Ngu Real Estate logo' id='ngu-logo-sidebar'></img>
             </div>
             <div className='sidebar-menus'>
-                <div className='sidebar-menu-item'>
+                <a href="">
+                    <div className='sidebar-menu-item'>
                     <img class='sidebar-icon' src={Leaderboard_Icon}></img>
-                    <a href="">Leaderboards</a>
+                    Leaderboards
                 </div>
-                <div className='sidebar-menu-item'>
-                    <img class='sidebar-icon' src={Branches_Icon}></img>
-                    <a href="">Branches</a>
-                </div>
-                <div className='sidebar-menu-item'>
+                </a>
+                <a href="">
+                    <div className='sidebar-menu-item'>
                     <img class='sidebar-icon' src={Agents_Icon}></img>
-                    <a href="">Agents</a>
+                    Agents
                 </div>
+                </a>
             </div>
             <div id='listing-btn-sect'>
                 < AddListingBtn />

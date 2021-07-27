@@ -1,5 +1,5 @@
 import './App.css';
-import Sidebar from './Sidebar/Sidebar.jsx';
+import Sidebar from './Components/Sidebar/Sidebar.jsx';
 import Header from './Components/Header/Header';
 
 // Will handle user authentication
@@ -8,7 +8,7 @@ import Header from './Components/Header/Header';
 const App = () => {
   return (
     <div className="App">
-      < Header agentName='John Stevenson' branch='Toowong'/> 
+      < Header agentName='John Stevenson' branch='Toowong' image=''/> 
       < Sidebar />
     </div>
   );

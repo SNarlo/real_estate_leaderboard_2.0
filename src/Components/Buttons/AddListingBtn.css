@@ -11,12 +11,13 @@
     padding: 15px;
     justify-content: space-around;
     width: 75%;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
 }
 
 #add-a-listing-btn:hover {
     cursor: pointer;
     background-color: #F4F5FC;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 }
 
 #plus-icon-span {
