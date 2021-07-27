@@ -1,0 +1,134 @@
+@import '/src/global-vars.css';
+
+.leaderboard {
+    margin-left: 15vw;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+#leaderboard-title {
+    font-family: BebasNeue-Regular;
+    color: #fff;
+    letter-spacing: 10px;
+    font-size: 64px;
+    line-height: 0;
+}
+
+#top-agents-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: rgb(114,187,251);
+    background: linear-gradient(135deg, rgba(114,187,251,1) 0%, rgba(58,73,128,1) 100%);
+    border-radius: 10px;
+    box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 2.5%;
+    margin-bottom: 10%;
+    height: 60vh;
+}
+
+#leader-cards-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+/* Outer Cards */
+#second, #third {
+    margin-top: 2%;
+}
+
+
+hr {
+    width: 90%;
+}
+
+/* Positions */
+
+.position {
+    font-size: 64px;
+    font-weight: Bold;
+    color: transparent;
+    -webkit-text-stroke-width: 2px;
+}
+
+#first .position {   
+    -webkit-text-stroke-color: #D9BB58;
+}
+
+#second .position {   
+    -webkit-text-stroke-color: #C0C0C0;
+}
+
+#third .position {   
+    -webkit-text-stroke-color: #CD7F32;
+}
+
+/* Outer-card */
+
+.leaderboard-card {
+    height: 350px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+    padding: 1%;
+}
+
+#first.leaderboard-card {
+    background: rgb(242,224,154);
+    background: linear-gradient(135deg, rgba(242,224,154,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+#second.leaderboard-card {
+    background: rgb(220,220,220);
+    background: linear-gradient(135deg, rgba(220,220,220,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+#third.leaderboard-card {
+    background: rgb(255,222,188);
+    background: linear-gradient(135deg, rgba(255,222,188,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+/* Inner-card */
+.inner-container {
+    height: 90%;
+    padding-left: 5%;
+    padding-right: 5%
+}
+
+#first .inner-container {
+    border-left : 1px solid #D9BB58;
+    border-right : 1px solid #D9BB58;
+}
+
+#second .inner-container  {
+    border-left : 1px solid #C0C0C0;
+    border-right : 1px solid #C0C0C0;
+}
+
+#third .inner-container  {
+    border-left : 1px solid #CD7F32;
+    border-right : 1px solid #CD7F32;
+}
+
+/* Borders */
+#first hr {
+    background-color: #D9BB58;
+    height: 1px;
+    border: 0;
+}
+
+#second hr {
+    background-color: #C0C0C0;
+    height: 1px;
+    border: 0;
+}
+
+#third hr {
+    background-color: #CD7F32;
+    height: 1px;
+    border: 0;
+}

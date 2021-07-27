@@ -65,7 +65,6 @@
     justify-content: center;
     align-items: center;
     border: none;
-    background: none;
 }
 
 #dropdown-toggle:hover {
@@ -79,6 +78,7 @@
     flex-direction: column;
     border: 1px solid #E6E6E6;
     border-radius: 10px;
+    background: #fff;
 }
 
 #drop-down-item {

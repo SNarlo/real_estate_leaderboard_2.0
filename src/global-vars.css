@@ -4,3 +4,8 @@
 
     --primary-font: 'Montserrat';
 }
+
+@font-face {
+    font-family: BebasNeue-Regular;
+    src: url('./Media/Fonts/BebasNeue-Regular.ttf');
+}

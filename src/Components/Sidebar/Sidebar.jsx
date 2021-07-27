@@ -8,7 +8,6 @@ import RELB_Logo from '../../Media/Images/relb-logo-sidebar.png'
 
 
 const Sidebar = () => {
-
     return (
         <div className="sidebar">
             <div className='ngu-logo-section'>
