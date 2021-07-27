@@ -36,7 +36,7 @@
     width: 75px;
     background-color: var(--primary-baby-blue);
     margin: 0 20px;
-    border-radius: 100px;
+    border-radius: 50%;
 }
 
 .agent-details {
@@ -65,6 +65,7 @@
     justify-content: center;
     align-items: center;
     border: none;
+    background-color: #fff;
 }
 
 #dropdown-toggle:hover {
