@@ -16,13 +16,13 @@ const Sidebar = () => {
             <div className='sidebar-menus'>
                 <a href="">
                     <div className='sidebar-menu-item'>
-                    <img class='sidebar-icon' src={Leaderboard_Icon}></img>
+                    <img className='sidebar-icon' src={Leaderboard_Icon}></img>
                     Leaderboards
                 </div>
                 </a>
                 <a href="">
                     <div className='sidebar-menu-item'>
-                    <img class='sidebar-icon' src={Agents_Icon}></img>
+                    <img className='sidebar-icon' src={Agents_Icon}></img>
                     Agents
                 </div>
                 </a>

@@ -4,7 +4,8 @@
     margin-left: 15vw;
     overflow-x: hidden;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 #leaderboard-title {
@@ -26,6 +27,7 @@
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
     margin-top: 2.5%;
     margin-bottom: 10%;
+    padding-bottom: 3%;
     height: 60vh;
 }
 
@@ -33,6 +35,7 @@
     display: flex;
     flex-direction: row;
     width: 100%;
+    height: 100%;
     justify-content: space-evenly;
 }
 
@@ -44,11 +47,17 @@
 
 hr {
     width: 90%;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 /* Positions */
 
 .position {
+    width: 100%;
+    display: flex;
+    justify-content: start;
+    left: 5px;
     font-size: 64px;
     font-weight: Bold;
     color: transparent;
@@ -70,8 +79,8 @@ hr {
 /* Outer-card */
 
 .leaderboard-card {
-    height: 350px;
-    width: 320px;
+    height: 90%;
+    width: 22%;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
     padding: 1%;
@@ -94,9 +103,20 @@ hr {
 
 /* Inner-card */
 .inner-container {
-    height: 90%;
+    display: flex;
+    position: relative;
+    top: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
     padding-left: 5%;
     padding-right: 5%;
+}
+
+.agent-info-container {
+    position: absolute;
+    top: 5%;
 }
 
 #first .inner-container {
@@ -113,6 +133,31 @@ hr {
     border-left : 1px solid #CD7F32;
     border-right : 1px solid #CD7F32;
 }
+
+/* Inner card element styling */
+
+#agent-photo {
+    height: 70%;
+    width: 70%;
+    border-radius: 50%;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+#agent-branch {
+    font-weight: 500;
+    color: #808080;
+    margin: 0 16px;
+}
+
+#sales-total {
+    color: var(--primary-navy-blue);    
+}
+
+#total-sales {
+    font-weight: 500;
+    color: #808080;
+}
+
 
 /* Borders */
 #first hr {
@@ -132,3 +177,24 @@ hr {
     height: 1px;
     border: 0;
 }
+
+
+/* Table */
+.table-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5%;
+}
+
+#title-row {
+    width: 100%;
+}
+
+#table-top-divider {
+    height: 1px;
+    background: var(--primary-navy-blue);
+    outline: none;
+}
+
