@@ -23,7 +23,7 @@ const LeaderCard = (props) => {
 const NonLeaderCard = (props) => { //need to fetch database data and map to tr
     return (
         <tr>
-
+            
         </tr>
     )
 }

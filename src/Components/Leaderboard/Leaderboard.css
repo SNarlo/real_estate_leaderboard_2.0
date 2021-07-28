@@ -135,6 +135,9 @@ hr {
 }
 
 /* Inner card element styling */
+#agent-name {
+    letter-spacing: 3px;
+}
 
 #agent-photo {
     height: 70%;
@@ -147,13 +150,16 @@ hr {
     font-weight: 500;
     color: #808080;
     margin: 0 16px;
+    letter-spacing: 3px;
 }
 
 #sales-total {
     color: var(--primary-navy-blue);    
+    letter-spacing: 3px;
 }
 
 #total-sales {
+    letter-spacing: 3px;
     font-weight: 500;
     color: #808080;
 }
