@@ -15,7 +15,7 @@ const App = (props) => {
       const db = firebase.firestore()
       const data = await db.collection().get()
     }
-  }), []
+  }, []);
 
   return (
     <div className="App">

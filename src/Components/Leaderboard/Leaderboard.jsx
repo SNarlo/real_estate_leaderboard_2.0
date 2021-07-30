@@ -1,6 +1,6 @@
 import './Leaderboard.css'
 import John from '../../Media/Images/John-Stevenson.png'
-
+import firebase from '../../firebase'
 const LeaderCard = (props) => {
     return (
         <div class='leaderboard-card' id={props.position}>
@@ -22,14 +22,30 @@ const LeaderCard = (props) => {
 
 const NonLeaderCard = (props) => { //need to fetch database data and map to tr
     return (
-        <tr>
-            
+        <tr className='leaderboard-row'>
+            <td className='leaderboard-cell'>
+                <span className='non-leader-pos'>{props.position}</span>
+            </td>
+            <td className='leaderboard-cell'>
+                <img className='agent-profile' src={props.img}></img>
+            </td>
+            <td className='leaderboard-cell'>
+                <h3>{props.name}</h3>
+            </td>
+            <td className='leaderboard-cell'>
+                <h3 id='branch'>{props.branch}</h3>
+            </td>
+            <td id='sales-cell' className='leaderboard-cell'>
+                <h3>{props.saletotal}</h3>
+                <p>{props.sales}</p>
+            </td>
         </tr>
+        
     )
 }
 
 
-const Leaderboard = (props) => {
+const Leaderboard = () => {
     return (
         <div className='leaderboard'>
             <section id='top-agents-section'>
@@ -48,16 +64,26 @@ const Leaderboard = (props) => {
                 </div>
             </section>   
             <div className='table-section'>
-                <table>
+                <table id='table'>
                     <tr id='title-row'>
                         <th>Pos.</th>
+                        <th></th>
                         <th>Name</th>
                         <th>Branch</th>
                         <th>Total</th>
                     </tr>
+                    < NonLeaderCard 
+                    position='1'
+                    img={John} 
+                    name='John Stevenson'
+                    branch='Toowong'
+                    saletotal='$23,578,456'
+                    sales='75'
+                    /> 
                 </table>
-                <hr id='table-top-divider'></hr>
             </div>
+            
+            
         </div>
     )
 }
