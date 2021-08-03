@@ -53,21 +53,20 @@ const Leaderboard = () => {
     const [fourthOnward, setFourthOnward] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const ref = firebase.firestore().collection("users")
-
-
+    const ref = firebase.firestore().collection("users").orderBy('sales_total', 'desc')
+    
 
     function getUsers() {
         setLoading(true)
-        ref.orderBy('sales_total', 'desc') // order in order of sales
+
         ref.onSnapshot((querySnapshot) => {
+            console.log(querySnapshot)
             const items = []
             querySnapshot.forEach((doc) => {
                 items.push(doc.data())
             })
 
             setUsers(items)
-            console.log(users)
 
             if (items.length > 3) {
                 const nonTopUsers = [] // adding fourth onward users
@@ -93,16 +92,41 @@ const Leaderboard = () => {
             <section id='top-agents-section'>
                 <h1 id='leaderboard-title'>Sales Leaderboard</h1>
                 <div id='leader-cards-container'>
-                    <LeaderCard position='second' number='2' />
-                    <LeaderCard 
-                    profile_img= {John}
-                    name = 'John'
-                    position= 'first'
-                    number='1' 
-                    branch_name='Toowong' 
-                    sales_total_figure='$18,760,980' 
-                    total_sales='16' />
-                    <LeaderCard position='third' number='3'/>
+                    {users.slice(1, 2).map(user =>
+                        <LeaderCard 
+                        key = {user.id}
+                        profile_img= {John}
+                        agent_name = {`${user.first_name} ${user.last_name}`}
+                        position= 'second'
+                        number='2' 
+                        branch_name= {user.branch}
+                        sales_total_figure={user.sales_total} 
+                        total_sales= {user.sales} 
+                        />)}
+
+                    {users.slice(0, 1).map(user =>
+                        <LeaderCard 
+                        key = {user.id}
+                        profile_img= {John}
+                        agent_name = {`${user.first_name} ${user.last_name}`}
+                        position= 'first'
+                        number='1' 
+                        branch_name= {user.branch}
+                        sales_total_figure={user.sales_total} 
+                        total_sales= {user.sales} 
+                        />)}
+
+                        {users.slice(2, 3).map(user =>
+                        <LeaderCard 
+                        key = {user.id}
+                        profile_img= {John}
+                        agent_name = {`${user.first_name} ${user.last_name}`}
+                        position= 'third'
+                        number='3' 
+                        branch_name= {user.branch}
+                        sales_total_figure={user.sales_total} 
+                        total_sales= {user.sales} 
+                        />)}
                 </div>
             </section>   
             <div className='table-section'>
@@ -118,7 +142,7 @@ const Leaderboard = () => {
                         key = {user.id}
                         position = {fourthOnward.indexOf(user) + 4}
                         img = {John}
-                        name = {user.first_name + ' ' + user.last_name} 
+                        name = {`${user.first_name} ${user.last_name}`} 
                         branch = {user.branch}
                         saletotal = {user.sales_total} 
                         sales = {user.sales}
