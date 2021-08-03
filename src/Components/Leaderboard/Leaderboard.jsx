@@ -1,9 +1,12 @@
+import { useEffect, useState } from 'react'
 import './Leaderboard.css'
 import John from '../../Media/Images/John-Stevenson.png'
 import firebase from '../../firebase'
+
+
 const LeaderCard = (props) => {
     return (
-        <div class='leaderboard-card' id={props.position}>
+        <div className='leaderboard-card' id={props.position}>
             <hr />
             <div className='inner-container'>
                 <span className='position'>{props.number}</span>
@@ -46,6 +49,45 @@ const NonLeaderCard = (props) => { //need to fetch database data and map to tr
 
 
 const Leaderboard = () => {
+    const [users, setUsers] = useState([])
+    const [fourthOnward, setFourthOnward] = useState([])
+    const [loading, setLoading] = useState(false)
+
+    const ref = firebase.firestore().collection("users")
+
+
+
+    function getUsers() {
+        setLoading(true)
+        ref.orderBy('sales_total', 'desc') // order in order of sales
+        ref.onSnapshot((querySnapshot) => {
+            const items = []
+            querySnapshot.forEach((doc) => {
+                items.push(doc.data())
+            })
+
+            setUsers(items)
+            console.log(users)
+
+            if (items.length > 3) {
+                const nonTopUsers = [] // adding fourth onward users
+                for (let i = 3; i < items.length; i++) {
+                    nonTopUsers.push(items[i])
+                }
+                setFourthOnward(nonTopUsers);
+            }
+            setLoading(false)
+        });
+    }
+
+    useEffect(() => {
+        getUsers();
+    }, [])
+
+    if (loading) {
+        return <h1>Loading...</h1>
+    }
+
     return (
         <div className='leaderboard'>
             <section id='top-agents-section'>
@@ -53,10 +95,10 @@ const Leaderboard = () => {
                 <div id='leader-cards-container'>
                     <LeaderCard position='second' number='2' />
                     <LeaderCard 
-                    profile_img={John}
-                    position='first' 
+                    profile_img= {John}
+                    name = 'John'
+                    position= 'first'
                     number='1' 
-                    agent_name='John Stevenson' 
                     branch_name='Toowong' 
                     sales_total_figure='$18,760,980' 
                     total_sales='16' />
@@ -72,14 +114,15 @@ const Leaderboard = () => {
                         <th>Branch</th>
                         <th>Total</th>
                     </tr>
-                    < NonLeaderCard 
-                    position='1'
-                    img={John} 
-                    name='John Stevenson'
-                    branch='Toowong'
-                    saletotal='$23,578,456'
-                    sales='75'
-                    /> 
+                    {fourthOnward.map(user => < NonLeaderCard 
+                        key = {user.id}
+                        position = {fourthOnward.indexOf(user) + 4}
+                        img = {John}
+                        name = {user.first_name + ' ' + user.last_name} 
+                        branch = {user.branch}
+                        saletotal = {user.sales_total} 
+                        sales = {user.sales}
+                    />)}
                 </table>
             </div>
             

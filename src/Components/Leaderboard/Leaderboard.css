@@ -1,5 +1,9 @@
 @import '/src/global-vars.css';
 
+h1 {
+    color: red;
+}
+
 .leaderboard {
     margin-left: 15vw;
     overflow-x: hidden;

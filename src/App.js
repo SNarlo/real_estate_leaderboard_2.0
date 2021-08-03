@@ -10,13 +10,6 @@ import React from 'react';
 
 const App = (props) => {
 
-  React.useEffect(() => {
-    const fetchData = async () => {
-      const db = firebase.firestore()
-      const data = await db.collection().get()
-    }
-  }, []);
-
   return (
     <div className="App">
       < Header agentName='John Stevenson' branch='Toowong' image=''/> 
