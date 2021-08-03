@@ -6,7 +6,7 @@ const AddListingBtn = () => {
     return (
         <button onClick='' id='add-a-listing-btn'>
             <span id='plus-icon-span'><img id='plus-icon' src={Plus_Icon} alt='plus icon' /></span>
-            <span id='add-listing-text'>Add a Listing</span>
+            <span id='add-listing-text'>Add a Sale</span>
         </button>
     )
 }
