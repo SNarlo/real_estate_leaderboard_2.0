@@ -84,7 +84,7 @@ hr {
 
 .leaderboard-card {
     height: 90%;
-    width: 22%;
+    width: 23%;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
     padding: 1%;
@@ -144,8 +144,8 @@ hr {
 }
 
 #agent-photo {
-    height: 70%;
-    width: 70%;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
 }

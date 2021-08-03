@@ -119,7 +119,7 @@ const Leaderboard = () => {
                         {users.slice(2, 3).map(user =>
                         <LeaderCard 
                         key = {user.id}
-                        profile_img= {John}
+                        profile_img = {John}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'third'
                         number='3' 
