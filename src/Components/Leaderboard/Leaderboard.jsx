@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import './Leaderboard.css'
 import John from '../../Media/Images/John-Stevenson.png'
 import firebase from '../../firebase'
+import Spinner from 'react-bootstrap/Spinner'
+
 
 
 const LeaderCard = (props) => {
@@ -55,7 +57,6 @@ const Leaderboard = () => {
 
     const ref = firebase.firestore().collection("users").orderBy('sales_total', 'desc')
     
-
     function getUsers() {
         setLoading(true)
 
@@ -65,7 +66,6 @@ const Leaderboard = () => {
             querySnapshot.forEach((doc) => {
                 items.push(doc.data())
             })
-
             setUsers(items)
 
             if (items.length > 3) {
@@ -84,7 +84,11 @@ const Leaderboard = () => {
     }, [])
 
     if (loading) {
-        return <h1>Loading...</h1>
+        return (
+            <div className='spinner-container'>
+                <div className='spinner'></div>
+            </div> 
+        )
     }
 
     return (

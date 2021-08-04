@@ -1,8 +1,34 @@
 @import '/src/global-vars.css';
 
-h1 {
-    color: red;
+.spinner-container {
+    height: 70vh;
+    width: 85vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+@keyframes spinner {
+    to {transform: rotate(360deg);}
+}
+
+
+.spinner:before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    border-top-color: #07d;
+    animation: spinner .6s linear infinite;
+}
+
 
 .leaderboard {
     margin-left: 15vw;
@@ -230,3 +256,7 @@ hr {
     height: 30%;
     width: 30%;
 }
+
+
+
+/* MOBILE */
