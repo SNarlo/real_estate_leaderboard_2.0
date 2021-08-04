@@ -1,7 +1,8 @@
 import React, {useRef} from 'react'
-import {Card, Button, Form} from 'react-bootstrap'
+import {Card, Button, Form, Row} from 'react-bootstrap'
 import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
 import './Signup.css'
+import {useAuth} from '../../Contexts/AuthContext'
 
 export default function SignUp() {
 
@@ -12,28 +13,38 @@ export default function SignUp() {
     const passwordRef = useRef()
     const passwordConfirmationRef = useRef()
     const imageRef = useRef()
+    const { signup } = useAuth()
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        signup(emailRef.current.value, passwordRef.current.value)
+    }
+
 
     return (
-        <>
-            <Card >
-                <Card.Body>
+        <div className='sign-up-form-container'> 
+            <Card id='sign-up-card'>
+                <Card.Body id='sign-up-card-body'>
                     <img src={Relb_Logo_Blue} alt="RELB logo"/>
-                    <div>
-                        <span></span>
-                        <p>Create an account</p>
-                        <span></span>
+                    <div id='create-account-text-container'>
+                        <div className='horizontal-line'></div>
+                        <p id='create-text'>Create an account</p>
+                        <div className='horizontal-line'></div>         
                     </div>
-                    <Form >
-                        <Form.Group id='first-name'>
-                            <Form.Label>First Name</Form.Label>
-                            <Form.Control type='text' ref={firstNameRef} required/>
-                        </Form.Group>
-                        <Form.Group id='last-name'>
-                            <Form.Label>Last Name</Form.Label>
-                            <Form.Control type='text' ref={lastNameRef} required/>
-                        </Form.Group>
+                    <Form id='form'>
+                        <Row className='g-2'>
+                            <Form.Group id='first-name' className='w-50'>
+                                <Form.Label>First Name</Form.Label>
+                                <Form.Control type='text' ref={firstNameRef} required/>
+                            </Form.Group>
+                            <Form.Group id='last-name' className='w-50'>
+                                <Form.Label>Last Name</Form.Label>
+                                <Form.Control type='text' ref={lastNameRef} required/>
+                            </Form.Group>
+                        </Row>
                         <Form.Group id='branch'>
-                            <Form.Label for='branches'>Branch</Form.Label>
+                            <Form.Label htmlFor='branches'>Branch</Form.Label>
                             <Form.Select name='branches' id='branches' ref={branchRef} required>
                                 <option value='Toowong'>Toowong</option>
                                 <option value='Brassall'>Brassall</option>
@@ -61,10 +72,10 @@ export default function SignUp() {
                             <Form.Label for='img'>Profile Picture</Form.Label>
                             <Form.Control type='file' id='img' name='Upload' accept='image/*' ref={imageRef}/>
                         </Form.Group>
-                        <Button type='Submit'>Create Account</Button>
+                        <Button id='submit-button' type='Submit'>Create Account</Button>
                     </Form>
                 </Card.Body>
             </Card>
-        </>
+        </div>
     )
 }

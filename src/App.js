@@ -5,6 +5,7 @@ import Leaderboard from './Components/Leaderboard/Leaderboard';
 import SignUp from './Components/Authentication/Signup';
 import firebase from './firebase'
 import React from 'react';
+import { AuthProvider } from './Contexts/AuthContext';
 
 
 // Will handle user authentication
@@ -18,7 +19,10 @@ const App = (props) => {
       < Sidebar />
       < Leaderboard /> */}
 
-      <SignUp />
+      <AuthProvider>
+        <SignUp />
+      </AuthProvider>
+      
     </div>
   );
 }
