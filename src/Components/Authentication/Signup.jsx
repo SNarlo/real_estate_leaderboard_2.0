@@ -4,7 +4,7 @@ import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
 import './Signup.css'
 import {useAuth} from '../../Contexts/AuthContext'
 
-export default function SignUp() {
+const SignUp = () => {
 
     const firstNameRef = useRef()
     const lastNameRef = useRef()
@@ -94,3 +94,5 @@ export default function SignUp() {
         </div>
     )
 }
+
+export default SignUp
