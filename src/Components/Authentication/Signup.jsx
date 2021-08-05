@@ -1,5 +1,5 @@
-import React, {useRef} from 'react'
-import {Card, Button, Form, Row} from 'react-bootstrap'
+import React, {useRef, useState} from 'react'
+import {Card, Button, Form, Row, Alert} from 'react-bootstrap'
 import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
 import './Signup.css'
 import {useAuth} from '../../Contexts/AuthContext'
@@ -14,11 +14,25 @@ export default function SignUp() {
     const passwordConfirmationRef = useRef()
     const imageRef = useRef()
     const { signup } = useAuth()
+    const [error, setError] = useState('')
+    const [loading, setLoading] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        signup(emailRef.current.value, passwordRef.current.value)
+        if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
+            return setError('Passwords do not match')
+        }
+
+        try {
+            setError('')
+            setLoading(true)
+            await signup(emailRef.current.value, passwordRef.current.value)
+        } catch {
+            setError('Failed to create an account')
+        }
+
+        setLoading(false)
     }
 
 
@@ -32,7 +46,8 @@ export default function SignUp() {
                         <p id='create-text'>Create an account</p>
                         <div className='horizontal-line'></div>         
                     </div>
-                    <Form id='form'>
+                    {error && <Alert variant='danger'>{error}</Alert>}
+                    <Form onSubmit={handleSubmit} id='form'>
                         <Row className='g-2'>
                             <Form.Group id='first-name' className='w-50'>
                                 <Form.Label>First Name</Form.Label>
@@ -72,7 +87,7 @@ export default function SignUp() {
                             <Form.Label for='img'>Profile Picture</Form.Label>
                             <Form.Control type='file' id='img' name='Upload' accept='image/*' ref={imageRef}/>
                         </Form.Group>
-                        <Button id='submit-button' type='Submit'>Create Account</Button>
+                        <Button disabled={loading} id='submit-button' type='Submit'>Create Account</Button>
                     </Form>
                 </Card.Body>
             </Card>
