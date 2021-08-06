@@ -4,6 +4,7 @@ import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
 import './Signup.css'
 import {useAuth} from '../../Contexts/AuthContext'
 import { useHistory } from 'react-router-dom'
+import { createUserInDb } from '../../Database/Dbfunctions'
 
 const SignUp = () => {
 
@@ -29,7 +30,7 @@ const SignUp = () => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value, branchRef.current.value)
             history.push('/login')
         } catch {
             setError('Failed to create an account')
@@ -87,7 +88,7 @@ const SignUp = () => {
                             <Form.Control type='text' ref={passwordConfirmationRef} required/>
                         </Form.Group>
                         <Form.Group id='profile-img'>
-                            <Form.Label for='img'>Profile Picture</Form.Label>
+                            <Form.Label htmlFor='img'>Profile Picture</Form.Label>
                             <Form.Control type='file' id='img' name='Upload' accept='image/*' ref={imageRef}/>
                         </Form.Group>
                         <Button disabled={loading} id='submit-button' type='Submit'>Create Account</Button>
