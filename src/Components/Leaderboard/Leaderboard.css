@@ -47,15 +47,15 @@
 }
 
 #top-agents-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 90%;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 90% !important;
     background: rgb(114,187,251);
     background: linear-gradient(135deg, rgba(114,187,251,1) 0%, rgba(58,73,128,1) 100%);
     border-radius: 10px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 2.5%;
+    margin-top: 2.5% ;
     margin-bottom: 10%;
     padding-bottom: 3%;
     height: 60vh;
@@ -66,17 +66,17 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
-    justify-content: space-evenly;
+    justify-content: space-evenly ;
 }
 
 /* Outer Cards */
 #second, #third {
-    margin-top: 2%;
+    margin-top: 2% ; 
 }
 
 
 hr {
-    width: 90%;
+    width: 90% ;
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -109,7 +109,7 @@ hr {
 /* Outer-card */
 
 .leaderboard-card {
-    height: 90%;
+    height: 90% !important;
     width: 23%;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);

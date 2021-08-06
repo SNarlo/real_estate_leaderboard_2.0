@@ -3,6 +3,7 @@ import {Card, Button, Form, Row, Alert} from 'react-bootstrap'
 import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
 import './Signup.css'
 import {useAuth} from '../../Contexts/AuthContext'
+import { useHistory } from 'react-router-dom'
 
 const SignUp = () => {
 
@@ -16,6 +17,7 @@ const SignUp = () => {
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -28,6 +30,7 @@ const SignUp = () => {
             setError('')
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value)
+            history.push('/login')
         } catch {
             setError('Failed to create an account')
         }

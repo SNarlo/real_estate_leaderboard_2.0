@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react'
 import './Leaderboard.css'
 import John from '../../Media/Images/John-Stevenson.png'
 import firebase from '../../firebase'
-import Spinner from 'react-bootstrap/Spinner'
-
-
 
 const LeaderCard = (props) => {
     return (
@@ -135,13 +132,15 @@ const Leaderboard = () => {
             </section>   
             <div className='table-section'>
                 <table id='table'>
-                    <tr id='title-row'>
-                        <th>Pos.</th>
-                        <th></th>
-                        <th>Name</th>
-                        <th>Branch</th>
-                        <th>Total</th>
-                    </tr>
+                    <thead>
+                        <tr id='title-row'>
+                            <th>Pos.</th>
+                            <th></th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
                     {fourthOnward.map(user => < NonLeaderCard 
                         key = {user.id}
                         position = {fourthOnward.indexOf(user) + 4}

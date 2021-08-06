@@ -5,7 +5,6 @@ import Ellipsis from '../../Media/SVG/ellipsis.svg'
 import Pencil from '../../Media/SVG/pencil.svg'
 import Exit from '../../Media/SVG/exit.svg'
 
-
 const DropdownEllipse = () => {
     return (
         <Dropdown>

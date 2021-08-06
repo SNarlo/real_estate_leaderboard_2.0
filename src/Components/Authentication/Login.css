@@ -46,8 +46,8 @@ label {
 }
 
 input, select {
-    outline: none;
-    border: none;
+    outline: none !important;
+    border: none !important;
     border-radius: 5px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
@@ -118,4 +118,15 @@ input, select {
 #google-img {
     margin-bottom:3px; 
     margin-right:5px;
+}
+
+#not-registered {
+    margin-top: 5%;
+    color: #808080;
+    font-size: 16px;
+}
+
+#signup-link {
+    color: var(--primary-navy-blue);
+    text-decoration: none !important;
 }

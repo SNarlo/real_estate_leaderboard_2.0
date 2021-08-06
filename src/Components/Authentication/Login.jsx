@@ -1,21 +1,18 @@
 import React, {useRef, useState} from 'react'
 import {Card, Button, Form, Row, Alert} from 'react-bootstrap'
 import Relb_Logo_Blue from '../../Media/SVG/relb-logo-blue.svg'
+import {Link, useHistory} from 'react-router-dom'
 import './Login.css'
 import {useAuth} from '../../Contexts/AuthContext'
 
 const Login = () => {
 
-    const firstNameRef = useRef()
-    const lastNameRef = useRef()
-    const branchRef = useRef()
     const emailRef = useRef()
     const passwordRef = useRef()
-    const passwordConfirmationRef = useRef()
-    const imageRef = useRef()
-    const { signup } = useAuth()
+    const { login } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,9 +20,10 @@ const Login = () => {
         try {
             setError('')
             setLoading(true)
-            await signup(emailRef.current.value, passwordRef.current.value)
+            await login(emailRef.current.value, passwordRef.current.value)
+            history.push('/')
         } catch {
-            setError('Failed to create an account')
+            setError('Failed to log in')
         }
 
         setLoading(false)
@@ -60,6 +58,7 @@ const Login = () => {
                             <Form.Label>Password</Form.Label>
                             <Form.Control type='text' ref={passwordRef} required/>
                         </Form.Group>
+                        <span id='not-registered'>Not registered yet? <Link id='signup-link' to='/signup'>Create an account</Link></span>
                         <Button disabled={loading} id='submit-button' type='Submit'>Sign in</Button>
                     </Form>
                 </Card.Body>
