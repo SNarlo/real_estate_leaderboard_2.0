@@ -9,6 +9,7 @@ import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { LeaderboardDashboard } from './Components/Dashboards/LeaderboardDashboard';
+import { ForgotPassword } from './Components/Authentication/ForgotPassword';
 
 // Will handle user authentication
 
@@ -23,6 +24,7 @@ const App = (props) => {
             <PrivateRoute exact path='/' component={LeaderboardDashboard} />
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={Login} />
+            <Route path='/forgot-password' component={ForgotPassword}/>
           </Switch>
         </AuthProvider>
       </div>

@@ -12,7 +12,19 @@ const Login = () => {
     const { login } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [alertVisible, setAlertVisible] = useState(false)
     const history = useHistory()
+
+
+    
+    const handleVisibleError = () => {
+        setAlertVisible(true)
+        setError('Failed to log in')
+        setTimeout(() => {
+            setAlertVisible(false)
+        }, 2000)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -23,7 +35,7 @@ const Login = () => {
             await login(emailRef.current.value, passwordRef.current.value)
             history.push('/')
         } catch {
-            setError('Failed to log in')
+            handleVisibleError()
         }
 
         setLoading(false)
@@ -48,7 +60,7 @@ const Login = () => {
                         <p id='create-text'>Or log in with email</p>
                         <div className='horizontal-line'></div>         
                     </div>
-                    {error && <Alert variant='danger'>{error}</Alert>}
+                    {error && alertVisible && <Alert variant='danger'>{error}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Form.Group id='email'>
                             <Form.Label>NGU Email</Form.Label>
@@ -56,9 +68,11 @@ const Login = () => {
                         </Form.Group>
                         <Form.Group id='password'>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type='text' ref={passwordRef} required/>
+                            <Form.Control type='password' ref={passwordRef} required/>
                         </Form.Group>
-                        <span id='not-registered'>Not registered yet? <Link id='signup-link' to='/signup'>Create an account</Link></span>
+                        <br></br>
+                        <span><Link class='form-links' to='/forgot-password'>Forgot password?</Link></span>
+                        <span id='not-registered'>Not registered yet? <Link class='form-links' to='/signup'>Create an account</Link></span>
                         <Button disabled={loading} id='submit-button' type='Submit'>Sign in</Button>
                     </Form>
                 </Card.Body>

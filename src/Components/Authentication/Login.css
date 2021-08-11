@@ -122,10 +122,11 @@ input, select {
 #not-registered {
     margin-top: 5%;
     color: #808080;
-    font-size: 16px;
+    font-size: 14px;
 }
 
-#signup-link {
+.form-links{
     color: var(--primary-navy-blue);
     text-decoration: none !important;
+    font-size: 14px;
 }

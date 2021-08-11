@@ -18,13 +18,23 @@ const SignUp = () => {
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [alertVisible, setAlertVisible] = useState(false)
     const history = useHistory()
+
+    const handleVisibleError = (error) => {
+        setError(error)
+        setAlertVisible(true)
+        setTimeout(() => {
+            setAlertVisible(false)
+        }, 2000)
+    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         if (passwordRef.current.value !== passwordConfirmationRef.current.value) {
-            return setError('Passwords do not match')
+            return handleVisibleError('Passwords do not match')
         }
 
         try {
@@ -33,7 +43,7 @@ const SignUp = () => {
             await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value, branchRef.current.value)
             history.push('/login')
         } catch {
-            setError('Failed to create an account')
+            handleVisibleError('Failed to create an account')
         }
 
         setLoading(false)
@@ -50,7 +60,7 @@ const SignUp = () => {
                         <p id='create-text'>Create an account</p>
                         <div className='horizontal-line'></div>         
                     </div>
-                    {error && <Alert variant='danger'>{error}</Alert>}
+                    {error && alertVisible && <Alert variant='danger'>{error}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Row className='g-2'>
                             <Form.Group id='first-name' className='w-50'>
@@ -81,11 +91,11 @@ const SignUp = () => {
                         </Form.Group>
                         <Form.Group id='password'>
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type='text' ref={passwordRef} required/>
+                            <Form.Control type='password' ref={passwordRef} required/>
                         </Form.Group>
                         <Form.Group id='password-confirm'>
                             <Form.Label>Confirm Password</Form.Label>
-                            <Form.Control type='text' ref={passwordConfirmationRef} required/>
+                            <Form.Control type='password' ref={passwordConfirmationRef} required/>
                         </Form.Group>
                         <Form.Group id='profile-img'>
                             <Form.Label htmlFor='img'>Profile Picture</Form.Label>
