@@ -58,20 +58,19 @@ const Leaderboard = () => {
         setLoading(true)
 
         ref.onSnapshot((querySnapshot) => {
-            console.log(querySnapshot)
             const items = []
             querySnapshot.forEach((doc) => {
                 items.push(doc.data())
             })
             setUsers(items)
 
-            if (items.length > 3) {
-                const nonTopUsers = [] // adding fourth onward users
-                for (let i = 3; i < items.length; i++) {
-                    nonTopUsers.push(items[i])
-                }
-                setFourthOnward(nonTopUsers);
-            }
+            // if (items.length > 3) {
+            //     const nonTopUsers = [] // adding fourth onward users
+            //     for (let i = 3; i < items.length; i++) {
+            //         nonTopUsers.push(items[i])
+            //     }
+            //     setFourthOnward(nonTopUsers);
+            // }
             setLoading(false)
         });
     }
