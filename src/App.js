@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Leaderboard from './Components/Leaderboard/Leaderboard';
 import Header from './Components/Header/Header';
 import Sidebar from './Components/Sidebar/Sidebar';
+import { PrivateRoute } from './Routes/PrivateRoute';
 
 // Will handle user authentication
 
@@ -19,11 +20,11 @@ const App = (props) => {
       <div className="App">
         <AuthProvider>
           <Switch>
-            <Route exact path='/' >
+            <PrivateRoute exact path='/' >
               <Header />
               <Sidebar />
               <Leaderboard />
-            </Route>
+            </PrivateRoute>
             <Route path='/signup' component={SignUp} />
             <Route path='/login' component={Login} />
           </Switch>
