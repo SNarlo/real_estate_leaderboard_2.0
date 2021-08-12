@@ -43,7 +43,9 @@
     color: #fff;
     letter-spacing: 10px;
     font-size: 64px;
-    line-height: 0;
+    line-height: 1;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 #top-agents-section {
@@ -55,10 +57,10 @@
     background: linear-gradient(135deg, rgba(114,187,251,1) 0%, rgba(58,73,128,1) 100%);
     border-radius: 10px;
     box-shadow: 8px 8px 10px rgba(0, 0, 0, 0.2);
-    margin-top: 2.5% ;
-    margin-bottom: 10%;
-    padding-bottom: 3%;
-    height: 60vh;
+    margin-top: 2.5%  !important;
+    margin-bottom: 5%  !important;
+    padding-bottom: 3%  !important;
+    height: 60vh  !important;
 }
 
 #leader-cards-container {
@@ -66,7 +68,7 @@
     flex-direction: row;
     width: 100%;
     height: 100%;
-    justify-content: space-evenly ;
+    justify-content: space-evenly;
 }
 
 /* Outer Cards */
@@ -76,9 +78,13 @@
 
 
 hr {
-    width: 90% ;
-    margin-top: 0;
-    margin-bottom: 0;
+    position: relative;
+    margin: 0 auto  !important;
+    width: 90%  !important;
+    margin-top: 0 !important;
+    margin-bottom: 0  !important;
+    height: 1px  !important;
+    opacity: 1  !important;
 }
 
 /* Positions */
@@ -91,7 +97,8 @@ hr {
     font-size: 64px;
     font-weight: Bold;
     color: transparent;
-    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-width: 2px !important;
+    opacity: 1  !important;
 }
 
 #first .position {   
@@ -110,10 +117,10 @@ hr {
 
 .leaderboard-card {
     height: 90% !important;
-    width: 23%;
+    width: 23%  !important;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
-    padding: 1%;
+    padding: 1%  !important;
 }
 
 #first.leaderboard-card {
@@ -166,6 +173,9 @@ hr {
 
 /* Inner card element styling */
 #agent-name {
+    margin-top: 10%;
+    font-size: 18px;
+    font-weight: 700;
     letter-spacing: 3px;
 }
 
@@ -177,19 +187,24 @@ hr {
 }
 
 #agent-branch {
-    font-weight: 500;
-    color: #808080;
-    margin: 0 16px;
+    font-weight: 500  !important;
+    color: #808080  !important;
+    margin-bottom: 10%  !important;
+    font-size: 15px;
     letter-spacing: 3px;
 }
 
 #sales-total {
-    color: var(--primary-navy-blue);    
+    color: var(--primary-navy-blue);  
+    font-size: 18px;  
+    font-weight: 700;
+    margin-top: 10%;
     letter-spacing: 3px;
 }
 
 #total-sales {
     letter-spacing: 3px;
+    font-size: 14px;
     font-weight: 500;
     color: #808080;
 }

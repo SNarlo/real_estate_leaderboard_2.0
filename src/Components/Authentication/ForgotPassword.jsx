@@ -53,6 +53,7 @@ export const ForgotPassword = () => {
                         <div className='horizontal-line'></div>         
                     </div>
                     {error && alertVisible && <Alert Fade='true' variant='danger' style={{marginTop:"5%"}}>{error}</Alert>}
+                    {message &&  <Alert Fade='true' variant='success' style={{marginTop:"5%"}}>{message}</Alert>}
                     <Form onSubmit={handleSubmit} id='form'>
                         <Form.Group id='email'>
                             <Form.Label>NGU Email</Form.Label>
