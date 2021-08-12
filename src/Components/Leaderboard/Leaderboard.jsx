@@ -24,6 +24,7 @@ const LeaderCard = (props) => {
 
 const NonLeaderCard = (props) => { //need to fetch database data and map to tr
     return (
+
         <tr className='leaderboard-row'>
             <td className='leaderboard-cell'>
                 <span className='non-leader-pos'>{props.position}</span>
@@ -64,13 +65,13 @@ const Leaderboard = () => {
             })
             setUsers(items)
 
-            // if (items.length > 3) {
-            //     const nonTopUsers = [] // adding fourth onward users
-            //     for (let i = 3; i < items.length; i++) {
-            //         nonTopUsers.push(items[i])
-            //     }
-            //     setFourthOnward(nonTopUsers);
-            // }
+            if (items.length > 3) {
+                const nonTopUsers = [] // adding fourth onward users
+                for (let i = 3; i < items.length; i++) {
+                    nonTopUsers.push(items[i])
+                }
+                setFourthOnward(nonTopUsers);
+            }
             setLoading(false)
         });
     }
@@ -140,15 +141,17 @@ const Leaderboard = () => {
                             <th>Total</th>
                         </tr>
                     </thead>
-                    {fourthOnward.map(user => < NonLeaderCard 
-                        key = {user.id}
-                        position = {fourthOnward.indexOf(user) + 4}
-                        img = {John}
-                        name = {`${user.first_name} ${user.last_name}`} 
-                        branch = {user.branch}
-                        saletotal = {user.sales_total} 
-                        sales = {user.sales}
-                    />)}
+                    <tbody>
+                            {fourthOnward.map(user => < NonLeaderCard 
+                            key = {user.id}
+                            position = {fourthOnward.indexOf(user) + 4}
+                            img = {John}
+                            name = {`${user.first_name} ${user.last_name}`} 
+                            branch = {user.branch}
+                            // saletotal = {user.sales_total} 
+                            // sales = {user.sales}
+                        />)}
+                    </tbody>
                 </table>
             </div>
             

@@ -31,6 +31,7 @@ const Sidebar = () => {
                 < AddListingBtn />
             </div>
             <img id='relb-logo' src={RELB_Logo} alt='RELB logo'></img>
+            <div className='sidebar-overlay'></div>
         </div>
     )
 }

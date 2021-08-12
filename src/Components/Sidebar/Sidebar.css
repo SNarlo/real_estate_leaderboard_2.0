@@ -3,7 +3,21 @@
     top: 0;
     height: 100vh;
     width: 15vw;
-    background-color: cadetblue;
+    background-image: url('../../Media/Images/mountain.jpeg');
+    background-repeat: no-repeat;
+    background-position-y: bottom;
+    background-position-x: center;
+    background-size: cover;
+}
+
+.sidebar-overlay {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    width: 15vw;
+    background: rgb(114,187,251);
+    background: linear-gradient(153deg, rgba(114,187,251,0.8) 0%, rgba(128,128,128,0.4514180672268907) 100%);
 }
 
 .ngu-logo-section {
@@ -19,6 +33,7 @@
 
 .sidebar-menu-item {
     display: flex;
+    text-decoration: none !important;
     align-items: center;
     padding: 10% 15%;
 }
@@ -28,8 +43,8 @@
 }
 
 a {
-    text-decoration: none;
-    color: #fff;
+    text-decoration: none !important;
+    color: #fff !important;
 }
 
 

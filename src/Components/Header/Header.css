@@ -19,6 +19,7 @@
 
 #profile-link {
     color: var(--primary-navy-blue);
+    text-decoration: none !important;
 }
 
 .agent-information {
@@ -43,17 +44,20 @@
     display: flex;
     flex-direction: column;
     width: auto;
+    
     text-align: right;
 }
 
 #agent-name {
     color: var(--primary-navy-blue);
     line-height: 2em;
+    text-decoration: none !important;
     width: 100%;
 }
 
 #agent-branch {
     margin: 0 !important;
+    text-decoration: none !important;
     color: var(--primary-baby-blue);
 }
 
