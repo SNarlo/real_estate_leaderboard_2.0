@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import './Leaderboard.css'
 import John from '../../Media/Images/John-Stevenson.png'
+import LeftTriangle from '../../Media/SVG/left-triangle.svg'
+import RightTriangle from '../../Media/SVG/right-triangle.svg'
 import firebase from '../../firebase'
 
 const LeaderCard = (props) => {
@@ -117,7 +119,7 @@ const Leaderboard = () => {
                         total_sales= {user.sales} 
                         />)}
 
-                        {users.slice(2, 3).map(user =>
+                    {users.slice(2, 3).map(user =>
                         <LeaderCard 
                         key = {user.id}
                         profile_img = {John}
@@ -129,6 +131,10 @@ const Leaderboard = () => {
                         total_sales= {user.sales} 
                         />)}
                 </div>
+            <div className='svg-triangle-elements'>
+                <img id='left-triangle' src={LeftTriangle}/>
+                <img id='right-triangle' src={RightTriangle}/>
+            </div>
             </section>   
             <div className='table-section'>
                 <table id='table'>
