@@ -1,20 +1,16 @@
 import './App.css';
 import SignUp from './Components/Authentication/Signup';
 import Login from './Components/Authentication/Login';
-import React from 'react';
+import React, { useState } from 'react';
 import { AuthProvider } from './Contexts/AuthContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import Leaderboard from './Components/Leaderboard/Leaderboard';
-import Header from './Components/Header/Header';
-import Sidebar from './Components/Sidebar/Sidebar';
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { LeaderboardDashboard } from './Components/Dashboards/LeaderboardDashboard';
 import { ForgotPassword } from './Components/Authentication/ForgotPassword';
 
 // Will handle user authentication
 
-
-const App = (props) => {
+const App = () => {
 
   return (
     <Router>
@@ -29,8 +25,6 @@ const App = (props) => {
         </AuthProvider>
       </div>
     </Router>
-
-  
   );
 }
 
