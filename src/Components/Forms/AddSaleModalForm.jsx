@@ -1,5 +1,6 @@
 import React, { useRef } from 'react'
 import {Card, Button, Form, Alert, Row} from 'react-bootstrap' 
+import './AddSaleModalForm.css'
 
 
 export const AddSaleModalForm = ({show}) => {
@@ -13,11 +14,9 @@ export const AddSaleModalForm = ({show}) => {
     }
 
     return (
-        <>
-            <Card class='sales-modal-form'
-            style={{
-                opacity: show ? '1' : '0'
-            }}>
+        <div className='sales-form-container'
+        style={{display: show ? 'flex' : 'none'}}>
+            <Card className='sales-modal-form'>
                 <Card.Body>
                     <h1>Add A Sale</h1>
                     <div className='horizontal-line'></div>
@@ -38,10 +37,10 @@ export const AddSaleModalForm = ({show}) => {
                                 <Form.Control type='text' ref={postcodeRef} required/>
                             </Form.Group>
                         </Row>
-                    </Form>     
+                    </Form> 
+                    <Button>Submit</Button>    
                 </Card.Body>
-                <Button></Button>
             </Card>
-        </>
+        </div>
     )
 }

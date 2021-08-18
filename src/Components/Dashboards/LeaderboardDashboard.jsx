@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { AddSaleModalForm } from '../Forms/AddSaleModalForm'
 import Header from '../Header/Header'
 import Leaderboard from '../Leaderboard/Leaderboard'
@@ -9,7 +9,6 @@ export const LeaderboardDashboard = () => {
     const [showSalesModal, setShowSalesModal] = useState(false)
 
     const closeSalesModal = () => setShowSalesModal(false)
-
 
     return (
         <>

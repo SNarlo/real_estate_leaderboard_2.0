@@ -18,7 +18,7 @@
 }
 
 #profile-link {
-    color: var(--primary-navy-blue);
+    color: var(--primary-navy-blue) !important;
     text-decoration: none !important;
 }
 
@@ -49,7 +49,7 @@
 }
 
 #agent-name {
-    color: var(--primary-navy-blue);
+    color: var(--primary-navy-blue) !important;
     line-height: 2em;
     text-decoration: none !important;
     width: 100%;
