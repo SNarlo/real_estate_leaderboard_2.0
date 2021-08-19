@@ -26,7 +26,6 @@ const LeaderCard = (props) => {
 
 const NonLeaderCard = (props) => { //need to fetch database data and map to tr
     return (
-
         <tr className='leaderboard-row'>
             <td className='leaderboard-cell'>
                 <span className='non-leader-pos'>{props.position}</span>
@@ -45,7 +44,6 @@ const NonLeaderCard = (props) => { //need to fetch database data and map to tr
                 <p>{props.sales}</p>
             </td>
         </tr>
-        
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Sidebar.css'
 import AddSaleBtn from '../Buttons/AddSaleBtn'
 import NGU_Logo from '../../Media/Images/ngu-real-estate-logo.png'
@@ -16,13 +16,13 @@ const Sidebar = ({click}) => {
             </div>
             <div className='sidebar-menus'>
                 <Link to='/'>
-                    <div className='sidebar-menu-item'>
+                <div className='sidebar-menu-item' id='leaderboards'>
                     <img className='sidebar-icon' src={Leaderboard_Icon}></img>
                     Leaderboards
                 </div>
                 </Link>
                 <a href="">
-                    <div className='sidebar-menu-item'>
+                <div className='sidebar-menu-item' id='agents'>
                     <img className='sidebar-icon' src={Agents_Icon}></img>
                     Agents
                 </div>

@@ -8,8 +8,9 @@ export const LeaderboardDashboard = () => {
     
     const [showSalesModal, setShowSalesModal] = useState(false)
 
-    const closeSalesModal = () => setShowSalesModal(false)
-
+    const closeSalesModal = () => {
+        setShowSalesModal(false)
+    }
 
     return (
         <>
