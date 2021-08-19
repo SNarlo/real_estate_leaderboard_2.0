@@ -1,7 +1,5 @@
 import firebase from "firebase";
 
-// const db = firebase.firestore() // the database reference
-
 const createUserInDb = (user, firstName, lastName, branch) => {
     const userUid = user.uid
     
@@ -16,4 +14,10 @@ const createUserInDb = (user, firstName, lastName, branch) => {
     firebase.firestore().collection('users').doc(userUid).set(userAccount)
 }
 
-export {createUserInDb}
+const createListingForUser = (user) => {
+    
+}
+
+
+export {createUserInDb,
+        createListingForUser}

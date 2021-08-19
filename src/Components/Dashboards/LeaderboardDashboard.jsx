@@ -10,13 +10,14 @@ export const LeaderboardDashboard = () => {
 
     const closeSalesModal = () => setShowSalesModal(false)
 
+
     return (
         <>
             <Header />
             <Leaderboard />
             <AddSaleModalForm />
             <Sidebar click={() => setShowSalesModal(true)}/>
-            <AddSaleModalForm show={showSalesModal}/>
+            <AddSaleModalForm show={showSalesModal} closeModal={closeSalesModal}/>
         </>
     )
 }

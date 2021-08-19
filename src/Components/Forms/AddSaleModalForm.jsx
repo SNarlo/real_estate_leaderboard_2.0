@@ -1,12 +1,11 @@
 import React, { useRef } from 'react'
 import {Card, Button, Form, Row} from 'react-bootstrap' 
 import './AddSaleModalForm.css'
-import firebase from 'firebase'
 import { useAuth } from '../../Contexts/AuthContext'
 
 
 
-export const AddSaleModalForm = ({show}) => {
+export const AddSaleModalForm = ({show, closeModal}) => {
 
     const linkRef = useRef()
     const suburbRef= useRef()
@@ -18,18 +17,19 @@ export const AddSaleModalForm = ({show}) => {
 
     const { currentUser } = useAuth()
 
-
-
     const saleFormSubmit = async (e) => {
         e.preventDefault()
         await console.log(currentUser)
     }
 
+
+
     return (
         <div className='sales-form-container'
-        style={{display: show ? 'flex' : 'none'}}>
+        style={{display: show ? 'flex' : 'none'}}
+        onClick={() => closeModal()}>
             <Card className='sales-modal-form'>
-                <Card.Body>
+                <Card.Body onClick={(e) => e.stopPropagation()}>
                     <h1 id='title'>Add A Sale</h1>
                     <Form onSubmit={saleFormSubmit} id='sales-form'>
                         <div className='inline-title'>
