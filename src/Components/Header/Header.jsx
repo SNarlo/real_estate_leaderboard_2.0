@@ -10,46 +10,6 @@ import { Link, useHistory } from 'react-router-dom'
 import firebase from '../../firebase'
 
 
-// const DropdownEllipse = ({click}) => {
-//     return (
-//         <Dropdown>
-//             <Dropdown.Toggle id='dropdown-toggle'>
-//                 <img id='ellipse-img' src={Ellipsis} alt="menu ellipsis" />
-//             </Dropdown.Toggle>
-//             <Dropdown.Menu id='drop-down-menu'>
-//                 <DropdownItem id='drop-down-item' ><img src={Pencil}></img>Edit Profile</DropdownItem> 
-//                 <DropdownItem id='drop-down-item' onClick={click}><img src={Exit}></img>Log Out</DropdownItem>
-//             </Dropdown.Menu>
-//         </Dropdown>
-//     )
-// }
-
-// const AgentInformation = (props) => {
-//     return (
-//         <div className='agent-information'>
-//             <div className='agent-details'>
-//                 <a id='agent-name' href=''>{props.agentName}</a>
-//                 <a id='agent-branch' href=''>{props.branch}</a>
-//             </div>
-//             <div id='agent-img'>
-//                 <Image id='img' src={props.image} roundedCircle fluid/>
-//             </div>
-//             <div className='ellipsis-container'>
-//             <Dropdown>
-//             <Dropdown.Toggle id='dropdown-toggle'>
-//                 <img id='ellipse-img' src={Ellipsis} alt="menu ellipsis" />
-//             </Dropdown.Toggle>
-//                 <Dropdown.Menu container='body' id='drop-down-menu'>
-//                     <Dropdown.Item id='drop-down-item' ><img src={Pencil}></img>Edit Profile</Dropdown.Item> 
-//                     <Dropdown.Item id='drop-down-item' onClick={() => props.click}><img src={Exit}></img>Log Out</Dropdown.Item>
-//                 </Dropdown.Menu>
-//             </Dropdown>
-//             </div>
-//         </div>
-//     )
-// }
-
-
 const Header = () => {
 
     const {currentUser, logOut} = useAuth()
@@ -74,7 +34,6 @@ const Header = () => {
 
     async function handleLogout() {
         setError('')
-        console.log('efedf')
         try {
             await logOut()
             history.push('/login')
@@ -102,7 +61,7 @@ const Header = () => {
                         <img id='ellipse-img' src={Ellipsis} alt="menu ellipsis" />
                     </Dropdown.Toggle>
                         <Dropdown.Menu container='body' id='drop-down-menu'>
-                            <Dropdown.Item id='drop-down-item' ><img src={Pencil}></img>Edit Profile</Dropdown.Item> 
+                            <Dropdown.Item id='drop-down-item' as={Link} to='/profile-settings'><img src={Pencil}></img>Profile Settings</Dropdown.Item>
                             <Dropdown.Item id='drop-down-item' onClick={() => handleLogout()}><img src={Exit}></img>Log Out</Dropdown.Item>
                         </Dropdown.Menu>
                     </Dropdown>

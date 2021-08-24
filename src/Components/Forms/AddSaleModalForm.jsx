@@ -22,8 +22,6 @@ export const AddSaleModalForm = ({show, closeModal}) => {
         await console.log(currentUser)
     }
 
-
-
     return (
         <div className='sales-form-container'
         style={{display: show ? 'flex' : 'none'}}
