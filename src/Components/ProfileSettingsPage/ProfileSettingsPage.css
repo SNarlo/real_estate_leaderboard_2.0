@@ -1,5 +1,10 @@
 .container {
-    min-width: 100%;
-    position: absolute;
+    width: 85vw !important;
+    position: absolute !important;
+    margin-top: 5%;
     left: 15vw !important;
+}
+
+.rex-auth-form {
+    width: 50%;
 }
