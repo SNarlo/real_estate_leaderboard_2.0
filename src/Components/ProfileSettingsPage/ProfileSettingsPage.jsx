@@ -1,5 +1,6 @@
-import React, {useState, useRef, useEffect} from 'react'
+import React, {useRef} from 'react'
 import {Button, Form, Alert} from 'react-bootstrap'
+import { useAuth } from '../../Contexts/AuthContext'
 import './ProfileSettingsPage.css'
 import { getRexAuthToken } from '../../RexIntegrations/RexIntegrations'
 
@@ -8,16 +9,11 @@ const ProfileSettingsPage = () => {
 
     const rexUsernameRef = useRef()
     const rexPasswordRef = useRef()
+    const { currentUser } = useAuth()
 
-    const [rexKey, setRexKey] = useState('')
-
-    useEffect(() => {
-        console.log(rexKey)
-    }, [rexKey])
-
-    const handleSubmit =(e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        setRexKey(getRexAuthToken(rexUsernameRef.current.value, rexPasswordRef.current.value))
+        getRexAuthToken(rexUsernameRef.current.value, rexPasswordRef.current.value, currentUser)
     }
 
     return (
@@ -32,7 +28,6 @@ const ProfileSettingsPage = () => {
                     <Form.Label>Rex Password</Form.Label>
                     <Form.Control type='password' ref={rexPasswordRef} />
                 </Form.Group>
-                <span>{rexKey}</span>
                 <Button type='submit'>Connect Rex</Button>
             </Form>
         </div>
