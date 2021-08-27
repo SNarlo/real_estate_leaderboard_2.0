@@ -67,7 +67,8 @@ const getUserListings = (authToken, currentUser) => {
     })
     .then(data => {
         for (let i = 0; i < data.result.rows.length; i++) {
-            if (data.result.rows[i].listing_agent_1.email_address === currentUser.email) {
+            if ((data.result.rows[i].listing_agent_1.email_address === currentUser.email) || 
+            (data.result.rows[i].listing_agent_2 && data.result.rows[i].listing_agent_2.email_address === currentUser.email)) {
                 console.log(data.result.rows[i])
             }
         }
