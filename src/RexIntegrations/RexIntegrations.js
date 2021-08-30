@@ -40,7 +40,7 @@ const getUserProfileID = (authToken) => {
     })
 }
 
-// Gets all the listings which exist for the current user
+// Gets all the listings which exist for the current user and saves them to firestore DB
 const getUserListings = (authToken, currentUser) => {
     fetch(`${baseURL}/v1/rex/published-listings/search`, {
         body: JSON.stringify({
@@ -71,9 +71,12 @@ const getUserListings = (authToken, currentUser) => {
             if ((data.result.rows[i].listing_agent_1.email_address === currentUser.email) || 
             (data.result.rows[i].listing_agent_2 && data.result.rows[i].listing_agent_2.email_address === currentUser.email)) {
                 let listingData = data.result.rows[i]
-                createListingForUser(currentUser, listingData)
+                createListingForUser(currentUser, listingData) // saving to db 
             }
         }
+    })
+    .catch (error => {
+        console.log(error)
     })
 }
 
