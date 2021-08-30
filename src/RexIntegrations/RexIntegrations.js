@@ -1,5 +1,6 @@
-const baseURL = 'https://api.rexsoftware.com'
+import { createListingForUser } from "../Database/Dbfunctions"
 
+const baseURL = 'https://api.rexsoftware.com'
 
 // Sends a request to the Rex Api to login, it returns an authorisation token  
 // which is used to perform authenticated requests
@@ -54,7 +55,7 @@ const getUserListings = (authToken, currentUser) => {
             order_by: {
                 "system_ctime": "desc"
             },
-            limit: 20
+            limit: 5
         }),
         headers : {
             "Authorization" : `Bearer ${authToken}`,
@@ -69,10 +70,10 @@ const getUserListings = (authToken, currentUser) => {
         for (let i = 0; i < data.result.rows.length; i++) {
             if ((data.result.rows[i].listing_agent_1.email_address === currentUser.email) || 
             (data.result.rows[i].listing_agent_2 && data.result.rows[i].listing_agent_2.email_address === currentUser.email)) {
-                console.log(data.result.rows[i])
+                let listingData = data.result.rows[i]
+                createListingForUser(currentUser, listingData)
             }
         }
-        
     })
 }
 
