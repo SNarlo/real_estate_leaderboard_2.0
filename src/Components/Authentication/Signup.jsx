@@ -14,7 +14,6 @@ const SignUp = () => {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmationRef = useRef()
-    const imageRef = useRef()
     const { signup } = useAuth()
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -96,10 +95,6 @@ const SignUp = () => {
                         <Form.Group id='password-confirm'>
                             <Form.Label>Confirm Password</Form.Label>
                             <Form.Control type='password' ref={passwordConfirmationRef} required/>
-                        </Form.Group>
-                        <Form.Group id='profile-img'>
-                            <Form.Label htmlFor='img'>Profile Picture</Form.Label>
-                            <Form.Control type='file' id='img' name='Upload' accept='image/*' ref={imageRef}/>
                         </Form.Group>
                         <Button disabled={loading} id='submit-button' type='Submit'>Create Account</Button>
                     </Form>

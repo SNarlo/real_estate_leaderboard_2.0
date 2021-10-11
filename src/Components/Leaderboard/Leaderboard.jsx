@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import './Leaderboard.css'
-import John from '../../Media/Images/John-Stevenson.png'
 import LeftTriangle from '../../Media/SVG/left-triangle.svg'
 import RightTriangle from '../../Media/SVG/right-triangle.svg'
 import firebase from '../../firebase'
@@ -12,7 +11,6 @@ const LeaderCard = (props) => {
             <div className='inner-container'>
                 <span className='position'>{props.number}</span>
                 <div className='agent-info-container'>
-                    <img id='agent-photo' src={props.profile_img}></img>
                     <h2 id='agent-name'>{props.agent_name}</h2>
                     <h3 id='agent-branch'>{props.branch_name}</h3>
                     <h2 id='sales-total'>{props.sales_total_figure}</h2>
@@ -29,9 +27,6 @@ const NonLeaderCard = (props) => { //need to fetch database data and map to tr
         <tr className='leaderboard-row'>
             <td className='leaderboard-cell'>
                 <span className='non-leader-pos'>{props.position}</span>
-            </td>
-            <td className='leaderboard-cell'>
-                <img className='agent-profile' src={props.img}></img>
             </td>
             <td className='leaderboard-cell'>
                 <h3>{props.name}</h3>
@@ -95,8 +90,7 @@ const Leaderboard = () => {
                 <div id='leader-cards-container'>
                     {users.slice(1, 2).map(user =>
                         <LeaderCard 
-                        key = {user.id}
-                        profile_img= {John}
+                        key = {user.uid}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'second'
                         number='2' 
@@ -107,8 +101,7 @@ const Leaderboard = () => {
 
                     {users.slice(0, 1).map(user =>
                         <LeaderCard 
-                        key = {user.id}
-                        profile_img= {John}
+                        key = {user.uid}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'first'
                         number='1' 
@@ -119,8 +112,7 @@ const Leaderboard = () => {
 
                     {users.slice(2, 3).map(user =>
                         <LeaderCard 
-                        key = {user.id}
-                        profile_img = {John}
+                        key = {user.uid}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'third'
                         number='3' 
@@ -139,7 +131,6 @@ const Leaderboard = () => {
                     <thead>
                         <tr id='title-row'>
                             <th>Pos.</th>
-                            <th></th>
                             <th>Name</th>
                             <th>Branch</th>
                             <th>Total</th>
@@ -147,9 +138,8 @@ const Leaderboard = () => {
                     </thead>
                     <tbody>
                             {fourthOnward.map(user => < NonLeaderCard 
-                            key = {user.id}
+                            key = {user.uid}
                             position = {fourthOnward.indexOf(user) + 4}
-                            img = {John}
                             name = {`${user.first_name} ${user.last_name}`} 
                             branch = {user.branch}
                             // saletotal = {user.sales_total} 

@@ -19,6 +19,7 @@ const getRexAuthToken = (emailVal, passwordVal, currentUser) => {
     })
     .then(data => {
         let authToken = data.result
+        console.log()
         getUserListings(authToken, currentUser)
     })
 }
@@ -55,7 +56,7 @@ const getUserListings = (authToken, currentUser) => {
             order_by: {
                 "system_ctime": "desc"
             },
-            limit: 5
+            limit: 100
         }),
         headers : {
             "Authorization" : `Bearer ${authToken}`,
@@ -67,6 +68,8 @@ const getUserListings = (authToken, currentUser) => {
         return response.json()
     })
     .then(data => {
+        console.log(data)
+        // Saves the current listing for the user logged in
         for (let i = 0; i < data.result.rows.length; i++) {
             if ((data.result.rows[i].listing_agent_1.email_address === currentUser.email) || 
             (data.result.rows[i].listing_agent_2 && data.result.rows[i].listing_agent_2.email_address === currentUser.email)) {

@@ -1,5 +1,4 @@
 import './Header.css'
-import Image from 'react-bootstrap/Image'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Ellipsis from '../../Media/SVG/ellipsis.svg'
 import Pencil from '../../Media/SVG/pencil.svg'
@@ -19,7 +18,6 @@ const Header = () => {
     
     let usersDb = firebase.firestore().collection('users')
 
-
     // Retrieving the current user on page load
     useEffect(() => {
         usersDb.doc(currentUser.uid).get()
@@ -32,6 +30,7 @@ const Header = () => {
     }, [])
 
 
+    // Logs the user out of RELB
     async function handleLogout() {
         setError('')
         try {
@@ -51,9 +50,6 @@ const Header = () => {
                 <div className='agent-details'>
                     <a id='agent-name' href=''>{`${currentAgent.first_name} ${currentAgent.last_name}`}</a>
                     <a id='agent-branch' href=''>{currentAgent.branch}</a>
-                </div>
-                <div id='agent-img'>
-                    <Image id='img' roundedCircle fluid/>
                 </div>
                 <div className='ellipsis-container'>
                     <Dropdown>

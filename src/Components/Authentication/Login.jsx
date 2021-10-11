@@ -71,8 +71,8 @@ const Login = () => {
                             <Form.Control type='password' ref={passwordRef} required/>
                         </Form.Group>
                         <br></br>
-                        <span><Link class='form-links' to='/forgot-password'>Forgot password?</Link></span>
-                        <span id='not-registered'>Not registered yet? <Link class='form-links' to='/signup'>Create an account</Link></span>
+                        <span><Link className='form-links' to='/forgot-password'>Forgot password?</Link></span>
+                        <span id='not-registered'>Not registered yet? <Link className='form-links' to='/signup'>Create an account</Link></span>
                         <Button disabled={loading} id='submit-button' type='Submit'>Sign in</Button>
                     </Form>
                 </Card.Body>

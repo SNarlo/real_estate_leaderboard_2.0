@@ -33,6 +33,7 @@ const createListingForUser = (user, listing) => {
 }
 
 
-export {createUserInDb,
-        createListingForUser
-    }   
+export {
+    createUserInDb,
+    createListingForUser
+}   
