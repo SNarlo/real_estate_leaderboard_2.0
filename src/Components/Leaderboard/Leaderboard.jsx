@@ -13,7 +13,7 @@ const LeaderCard = (props) => {
                 <span className='position'>{props.number}</span>
                 <div className='agent-info-container'>
                     {/* TODO: Need to change to Link */}
-                    <h1 id='agent-name'>{props.agent_name}</h1> 
+                    <Link id='agent-name'>{props.agent_name}</Link> 
                     <h3 id='agent-branch'>{props.branch_name}</h3>
                     <h2 id='sales-total'>{props.sales_total_figure}</h2>
                     <p id='total-sales'>({props.total_sales})</p>
