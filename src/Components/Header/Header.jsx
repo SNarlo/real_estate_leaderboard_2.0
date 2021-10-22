@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../../Contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 import firebase from '../../firebase'
-import { getUserListingsFromDb } from '../../Database/Dbfunctions'
+import { getUserDetails } from '../../Database/Dbfunctions'
 
 const Header = () => {
 
@@ -26,6 +26,7 @@ const Header = () => {
                 setError('No such user exists');
             }
             setCurrentAgent(user.data())
+            getUserDetails(currentUser.uid)
         })
     }, [])
 

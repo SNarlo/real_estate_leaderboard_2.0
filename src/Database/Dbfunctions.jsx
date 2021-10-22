@@ -44,12 +44,25 @@ const getUserListingsFromDb = async (agentId) => {
         console.log('No matching documents')
         return
     } 
-    
+
     return snapshot
+}
+
+const getUserDetails = async (agentId) => {
+    const usersRef = firebase.firestore().collection("users").doc(agentId)
+    const doc = await usersRef.get()
+
+    if(!doc.exists) {
+        console.log('No such document exists')
+    } else {
+        console.log(doc.data())
+        return doc.data()
+    }
 }
 
 export {
     createUserInDb,
     createListingForUser,
-    getUserListingsFromDb
+    getUserListingsFromDb,
+    getUserDetails
 }   
