@@ -7,7 +7,7 @@ import AgentProfile from "../AgentsProfile/AgentsProfile";
 const AgentProfileDashboard = () => {
     return (
         <div>
-            
+            <section id='top-agents-section'></section>
         </div>
     )
 }

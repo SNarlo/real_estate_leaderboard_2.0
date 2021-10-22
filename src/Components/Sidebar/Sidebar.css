@@ -33,20 +33,18 @@
 
 .sidebar-menu-item {
     display: flex;
-    text-decoration: none !important;
     align-items: center;
     padding: 10% 15%;
+    color: #fff;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 .sidebar-icon {
     margin-right: 10%;
 }
-
-a {
-    text-decoration: none !important;
-    color: #fff !important;
-}
-
 
 #relb-logo {
     position: absolute;

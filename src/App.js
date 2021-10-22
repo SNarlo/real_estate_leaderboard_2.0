@@ -8,6 +8,7 @@ import { PrivateRoute } from './Routes/PrivateRoute';
 import { LeaderboardDashboard } from './Components/Dashboards/LeaderboardDashboard';
 import { ForgotPassword } from './Components/Authentication/ForgotPassword';
 import ProfileSettingsDashboard from './Components/Dashboards/ProfileSettingsDashboard';
+import AgentProfileDashboard from './Components/Dashboards/AgentProfileDashboard';
 
 
 // Will handle user authentication
@@ -24,6 +25,7 @@ const App = () => {
             <Route path='/login' component={Login} />
             <Route path='/forgot-password' component={ForgotPassword}/>
             <Route path='/profile-settings' component={ProfileSettingsDashboard}/>
+            <Route path='/agent-profile-dashboard' component={AgentProfileDashboard}/>
           </Switch>
         </AuthProvider>
       </div>

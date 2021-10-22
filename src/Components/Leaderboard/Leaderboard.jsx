@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './Leaderboard.css'
 import LeftTriangle from '../../Media/SVG/left-triangle.svg'
 import RightTriangle from '../../Media/SVG/right-triangle.svg'
 import firebase from '../../firebase'
 import { Link } from 'react-router-dom'
+
 
 const LeaderCard = (props) => {
     return (
@@ -12,8 +13,7 @@ const LeaderCard = (props) => {
             <div className='inner-container'>
                 <span className='position'>{props.number}</span>
                 <div className='agent-info-container'>
-                    {/* TODO: Need to change to Link */}
-                    <Link id='agent-name'>{props.agent_name}</Link> 
+                    <Link id={props.id} className='agent-name' to='/agent-profile-dashboard'>{props.agent_name}</Link> 
                     <h3 id='agent-branch'>{props.branch_name}</h3>
                     <h2 id='sales-total'>{props.sales_total_figure}</h2>
                     <p id='total-sales'>({props.total_sales})</p>
@@ -31,7 +31,7 @@ const NonLeaderCard = (props) => { //need to fetch database data and map to tr
                 <span className='non-leader-pos'>{props.position}</span>
             </td>
             <td className='leaderboard-cell'>
-                <h3>{props.name}</h3>
+                <Link id={props.id} className='non-leader-name' to='/agent-profile-dashboard'>{props.name}</Link>
             </td>
             <td className='leaderboard-cell'>
                 <h3 id='branch'>{props.branch}</h3>
@@ -93,6 +93,7 @@ const Leaderboard = () => {
                     {users.slice(1, 2).map(user =>
                         <LeaderCard 
                         key = {user.uid}
+                        id = {user.id}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'second'
                         number='2' 
@@ -102,6 +103,7 @@ const Leaderboard = () => {
                     {users.slice(0, 1).map(user =>
                         <LeaderCard 
                         key = {user.uid}
+                        id = {user.uid}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'first'
                         number='1' 
@@ -111,6 +113,7 @@ const Leaderboard = () => {
                     {users.slice(2, 3).map(user =>
                         <LeaderCard 
                         key = {user.uid}
+                        id = {user.uid}
                         agent_name = {`${user.first_name} ${user.last_name}`}
                         position= 'third'
                         number='3' 
@@ -135,6 +138,7 @@ const Leaderboard = () => {
                     <tbody>
                             {fourthOnward.map(user => < NonLeaderCard 
                             key = {user.uid}
+                            id = {user.uid}
                             position = {fourthOnward.indexOf(user) + 4}
                             name = {`${user.first_name} ${user.last_name}`} 
                             branch = {user.branch}

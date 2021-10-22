@@ -208,18 +208,12 @@ hr {
 }
 
 /* Inner card element styling */
-#agent-name {
+.agent-name {
     margin-top: 10%;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 3px;
-}
-
-#agent-photo {
-    height: 150px;
-    width: 150px;
-    border-radius: 50%;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    color: var(--primary-navy-blue);
 }
 
 #agent-branch {
@@ -310,6 +304,11 @@ hr {
 .non-leader-pos {
     font-size: 64px;
     font-family: BebasNeue-Regular
+}
+
+.non-leader-name {
+    color: var(--primary-navy-blue);
+    font-weight: 500;
 }
 
 .agent-profile {
