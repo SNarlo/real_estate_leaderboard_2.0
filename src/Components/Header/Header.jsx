@@ -7,7 +7,7 @@ import { useState, useEffect } from 'react'
 import { useAuth } from '../../Contexts/AuthContext'
 import { Link, useHistory } from 'react-router-dom'
 import firebase from '../../firebase'
-
+import { getUserListingsFromDb } from '../../Database/Dbfunctions'
 
 const Header = () => {
 

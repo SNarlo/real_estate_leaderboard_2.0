@@ -1,4 +1,4 @@
-import { createListingForUser } from "../Database/Dbfunctions"
+import { createListingForUser, updateSalesTotals } from "../Database/Dbfunctions"
 
 const baseURL = 'https://api.rexsoftware.com'
 
@@ -75,6 +75,7 @@ const getUserListings = (authToken, currentUser) => {
             (data.result.rows[i].listing_agent_2 && data.result.rows[i].listing_agent_2.email_address === currentUser.email)) {
                 let listingData = data.result.rows[i]
                 createListingForUser(currentUser, listingData) // saving to db 
+                // updateSalesTotals(currentUser)
             }
         }
     })

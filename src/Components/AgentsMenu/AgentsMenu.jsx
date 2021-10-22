@@ -1,6 +1,5 @@
 import './AgentsMenu.css'
 import Gavel from '../../Media/SVG/sold-gavel.svg'
-
 import React from 'react'
 
 const agentProfileCell = (props) => {

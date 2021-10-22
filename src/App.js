@@ -9,6 +9,7 @@ import { LeaderboardDashboard } from './Components/Dashboards/LeaderboardDashboa
 import { ForgotPassword } from './Components/Authentication/ForgotPassword';
 import ProfileSettingsDashboard from './Components/Dashboards/ProfileSettingsDashboard';
 
+
 // Will handle user authentication
 
 const App = () => {

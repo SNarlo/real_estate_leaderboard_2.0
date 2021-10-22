@@ -3,6 +3,7 @@ import './Leaderboard.css'
 import LeftTriangle from '../../Media/SVG/left-triangle.svg'
 import RightTriangle from '../../Media/SVG/right-triangle.svg'
 import firebase from '../../firebase'
+import { Link } from 'react-router-dom'
 
 const LeaderCard = (props) => {
     return (
@@ -11,7 +12,8 @@ const LeaderCard = (props) => {
             <div className='inner-container'>
                 <span className='position'>{props.number}</span>
                 <div className='agent-info-container'>
-                    <h2 id='agent-name'>{props.agent_name}</h2>
+                    {/* TODO: Need to change to Link */}
+                    <h1 id='agent-name'>{props.agent_name}</h1> 
                     <h3 id='agent-branch'>{props.branch_name}</h3>
                     <h2 id='sales-total'>{props.sales_total_figure}</h2>
                     <p id='total-sales'>({props.total_sales})</p>
@@ -48,7 +50,7 @@ const Leaderboard = () => {
     const [fourthOnward, setFourthOnward] = useState([])
     const [loading, setLoading] = useState(false)
 
-    const ref = firebase.firestore().collection("users").orderBy('sales_total', 'desc')
+    const ref = firebase.firestore().collection("users").orderBy('sales_total', 'desc')    
     
     function getUsers() {
         setLoading(true)
@@ -95,8 +97,6 @@ const Leaderboard = () => {
                         position= 'second'
                         number='2' 
                         branch_name= {user.branch}
-                        sales_total_figure={user.sales_total} 
-                        total_sales= {user.sales} 
                         />)}
 
                     {users.slice(0, 1).map(user =>
@@ -106,8 +106,6 @@ const Leaderboard = () => {
                         position= 'first'
                         number='1' 
                         branch_name= {user.branch}
-                        sales_total_figure={user.sales_total} 
-                        total_sales= {user.sales} 
                         />)}
 
                     {users.slice(2, 3).map(user =>
@@ -117,8 +115,6 @@ const Leaderboard = () => {
                         position= 'third'
                         number='3' 
                         branch_name= {user.branch}
-                        sales_total_figure={user.sales_total} 
-                        total_sales= {user.sales} 
                         />)}
                 </div>
             <div className='svg-triangle-elements'>
@@ -142,8 +138,6 @@ const Leaderboard = () => {
                             position = {fourthOnward.indexOf(user) + 4}
                             name = {`${user.first_name} ${user.last_name}`} 
                             branch = {user.branch}
-                            // saletotal = {user.sales_total} 
-                            // sales = {user.sales}
                         />)}
                     </tbody>
                 </table>

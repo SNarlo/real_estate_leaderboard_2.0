@@ -1,4 +1,6 @@
 import firebase from "firebase";
+import { doc, getDoc} from "firebase/firestore"
+
 
 // Creates a user in the firestore db with the same uid as the authentication uid
 const createUserInDb = (user, firstName, lastName, branch) => {
@@ -10,7 +12,7 @@ const createUserInDb = (user, firstName, lastName, branch) => {
         last_name : lastName,
         branch: branch
     }
-    firebase.firestore().collection('users').doc(userUid).set(userAccount)
+    firebase.firestore().collection("users").doc(userUid).set(userAccount)
 }
 
 // Creates a listing for a user in the listings collection only if it doesn't already exist
@@ -21,6 +23,7 @@ const createListingForUser = (user, listing) => {
     const agentListing = {
         listingId : listingId,
         agentId : userUid,
+        eTag: listing.etag,
         address : listing.address,
         attributes : listing.attributes,
         sale_price : listing.state_value_price,
@@ -29,11 +32,24 @@ const createListingForUser = (user, listing) => {
         sold_date : listing.state_date,
         property_category : listing.property_category
     }
-    firebase.firestore().collection('listings').doc(listingId).set(agentListing, {merge : true})
+    firebase.firestore().collection("listings").doc().set(agentListing, {merge : true})
 }
 
+// Retrieve all listings for an agent with a specific agentId 
+const getUserListingsFromDb = async (agentId) => {
+    const listingsDocRef = firebase.firestore().collection("listings")
+    const snapshot = await listingsDocRef.where('agentId', '==', agentId).get()
+
+    if(snapshot.empty) {
+        console.log('No matching documents')
+        return
+    } 
+    
+    return snapshot
+}
 
 export {
     createUserInDb,
-    createListingForUser
+    createListingForUser,
+    getUserListingsFromDb
 }   
