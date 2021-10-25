@@ -44,7 +44,6 @@ const getUserListingsFromDb = async (agentId) => {
         console.log('No matching documents')
         return
     } 
-
     return snapshot
 }
 

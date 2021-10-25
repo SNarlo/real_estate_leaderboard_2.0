@@ -41,7 +41,8 @@ const SignUp = () => {
             setLoading(true)
             await signup(emailRef.current.value, passwordRef.current.value, firstNameRef.current.value, lastNameRef.current.value, branchRef.current.value)
             history.push('/login')
-        } catch {
+        } catch(err) {
+            console.log(error)
             handleVisibleError('Failed to create an account')
         }
 

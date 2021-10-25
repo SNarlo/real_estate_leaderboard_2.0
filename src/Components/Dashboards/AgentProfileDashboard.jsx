@@ -4,10 +4,22 @@ import Sidebar from "../Sidebar/Sidebar";
 import AgentProfile from "../AgentsProfile/AgentsProfile";
 
 
-const AgentProfileDashboard = () => {
+const AgentProfileDashboard = ({userId}) => {
+
+
+    const printUserId = () => {
+        console.log(userId)
+    }
+
+    printUserId()
+
     return (
         <div>
-            <section id='top-agents-section'></section>
+            <Header />
+            <Sidebar/>
+            <AgentProfile 
+            userId={userId}
+            />
         </div>
     )
 }

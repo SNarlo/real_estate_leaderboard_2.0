@@ -1,8 +1,8 @@
 import React, {useContext, useState, useEffect} from 'react'
-import { createUserInDb } from '../Database/Dbfunctions';
+import { createUserInDb } from '../Database/Dbfunctions'
 import {auth} from '../firebase'
 
-const AuthContext = React.createContext();
+const AuthContext = React.createContext()
 
 export const useAuth = () => {
     return useContext(AuthContext)

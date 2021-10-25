@@ -26,19 +26,20 @@ export const ForgotPassword = () => {
 
 
     const handleSubmit = async (e) => {
-    e.preventDefault()
+        e.preventDefault()
 
-    try {
-        setMessage('')
-        setError('')
-        setLoading(true)
-        await forgotPassword(emailRef.current.value)
-        setMessage('Check your inbox for further instructions')
-    } catch {
-        handleVisibleError()
-    }
+        try {
+            setMessage('')
+            setError('')
+            setLoading(true)
+            await forgotPassword(emailRef.current.value)
+            setMessage('Check your inbox for further instructions')
+        } catch(err) {
+            console.log(err)
+            handleVisibleError()
+        }
 
-    setLoading(false)
+        setLoading(false)
 }
 
 
