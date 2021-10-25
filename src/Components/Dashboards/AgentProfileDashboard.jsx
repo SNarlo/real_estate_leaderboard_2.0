@@ -4,22 +4,13 @@ import Sidebar from "../Sidebar/Sidebar";
 import AgentProfile from "../AgentsProfile/AgentsProfile";
 
 
-const AgentProfileDashboard = ({userId}) => {
-
-
-    const printUserId = () => {
-        console.log(userId)
-    }
-
-    printUserId()
+const AgentProfileDashboard = () => {
 
     return (
         <div>
             <Header />
             <Sidebar/>
-            <AgentProfile 
-            userId={userId}
-            />
+            <AgentProfile/>
         </div>
     )
 }

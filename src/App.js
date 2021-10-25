@@ -3,6 +3,7 @@ import SignUp from './Components/Authentication/Signup';
 import Login from './Components/Authentication/Login';
 import React from 'react';
 import { AuthProvider } from './Contexts/AuthContext';
+import { UserProfileProvider } from './Contexts/UserProfileContext';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import { PrivateRoute } from './Routes/PrivateRoute';
 import { LeaderboardDashboard } from './Components/Dashboards/LeaderboardDashboard';
@@ -19,6 +20,7 @@ const App = () => {
     <Router>
       <div className="App">
         <AuthProvider>
+          <UserProfileProvider>
           <Switch>
             <PrivateRoute exact path='/' component={LeaderboardDashboard}/>
             <Route path='/signup' component={SignUp} />
@@ -27,6 +29,7 @@ const App = () => {
             <Route path='/profile-settings' component={ProfileSettingsDashboard}/>
             <Route path='/agent-profile-dashboard' component={AgentProfileDashboard}/>
           </Switch>
+          </UserProfileProvider>
         </AuthProvider>
       </div>
     </Router>

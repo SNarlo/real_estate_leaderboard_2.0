@@ -54,7 +54,6 @@ const getUserDetails = async (agentId) => {
     if(!doc.exists) {
         console.log('No such document exists')
     } else {
-        console.log(doc.data())
         return doc.data()
     }
 }

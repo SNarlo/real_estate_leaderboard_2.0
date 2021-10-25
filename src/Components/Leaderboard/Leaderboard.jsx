@@ -4,15 +4,23 @@ import LeftTriangle from '../../Media/SVG/left-triangle.svg'
 import RightTriangle from '../../Media/SVG/right-triangle.svg'
 import firebase from '../../firebase'
 import { Link } from 'react-router-dom'
+import { useProfileContext } from '../../Contexts/UserProfileContext'
 
 const LeaderCard = (props) => {
+
+    const { setUser } = useProfileContext()
+
+    const handleProfileSelection = async (e) => {
+        await setUser(e.target.id)
+    }
+
     return (
         <div className='leaderboard-card' id={props.position}>
             <hr />
             <div className='inner-container'>
                 <span className='position'>{props.number}</span>
                 <div className='agent-info-container'>
-                    <Link id={props.id} className='agent-name' to={{pathname: '/agent-profile-dashboard', state: {userId : props.id}}}>{props.agent_name}</Link> 
+                    <Link onClick={handleProfileSelection} id={props.id} className='agent-name' to={{pathname: '/agent-profile-dashboard', state: {userId : props.id}}}>{props.agent_name}</Link> 
                     <h3 id='agent-branch'>{props.branch_name}</h3>
                     <h2 id='sales-total'>{props.sales_total_figure}</h2>
                     <p id='total-sales'>({props.total_sales})</p>
