@@ -42,12 +42,3 @@
     width: 100%;
     border-radius: 0 0 10px 10px;
 }
-
-#right-triangle {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index: 1;
-    height: 100%;
-    border-radius: 0 10px 10px 0;
-}

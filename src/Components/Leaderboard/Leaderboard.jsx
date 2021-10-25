@@ -6,6 +6,7 @@ import firebase from '../../firebase'
 import { Link } from 'react-router-dom'
 import { useProfileContext } from '../../Contexts/UserProfileContext'
 
+
 const LeaderCard = (props) => {
 
     const { setUser } = useProfileContext()
@@ -32,13 +33,21 @@ const LeaderCard = (props) => {
 }
 
 const NonLeaderCard = (props) => { //need to fetch database data and map to tr
+
+    const { setUser } = useProfileContext()
+
+
+    const handleProfileSelection = async (e) => {
+        await setUser(e.target.id)
+    }
+
     return (
         <tr className='leaderboard-row'>
             <td className='leaderboard-cell'>
                 <span className='non-leader-pos'>{props.position}</span>
             </td>
             <td className='leaderboard-cell'>
-                <Link id={props.id} className='non-leader-name' to={{pathname: '/agent-profile-dashboard', state: {userId : props.id}}}>{props.name}</Link>
+                <Link onClick={handleProfileSelection} id={props.id} className='non-leader-name' to={{pathname: '/agent-profile-dashboard', state: {userId : props.id}}}>{props.name}</Link>
             </td>
             <td className='leaderboard-cell'>
                 <h3 id='branch'>{props.branch}</h3>
@@ -129,7 +138,6 @@ const Leaderboard = () => {
                 </div>
             <div className='svg-triangle-elements'>
                 <img id='left-triangle' src={LeftTriangle}/>
-                <img id='right-triangle' src={RightTriangle}/>
             </div>
             </section>   
             <div className='table-section'>
